@@ -1,0 +1,28 @@
+{
+  "name": "multitenant-connection-handling-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib",
+    "start": "nodemon --watch src --exec babel-node src"
+  },
+  "author": "Romit Amgai<rtrromitamgai@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "continuation-local-storage": "^3.2.1",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "mssql": "4.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
+    "nodemon": "^1.18.6"
+  }
+}
