@@ -16,7 +16,7 @@
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "knex": "^0.15.2",
-    "mssql": "4.1.0"
+    "pg": "^7.7.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
