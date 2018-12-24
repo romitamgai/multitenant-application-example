@@ -1,1 +1,1 @@
-# multitenant-application-example
+# Multitenant application implementation
