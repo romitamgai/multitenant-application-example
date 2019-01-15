@@ -7,7 +7,7 @@ let nameSpace = createNamespace('unique context');
 
 /**
  * Get the connection instance for the given tenant's slug and set it to the current context.
-**/
+ */
 export function resolve(req, res, next) {
   const slug = req.query.slug;
 

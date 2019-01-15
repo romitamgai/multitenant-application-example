@@ -6,8 +6,8 @@ import commonDBConnection from './commonDBConnection';
 let connectionMap;
 
 /**
- *  Create knex instance for all the tenants defined in common database and store in a map.
-**/
+ * Create knex instance for all the tenants defined in common database and store in a map.
+ **/
 export async function connectAllDb() {
   let tenants;
 
@@ -19,21 +19,20 @@ export async function connectAllDb() {
     return;
   }
 
-  connectionMap =
-    tenants
-      .map(tenant => {
-        return {
-          [tenant.slug]: knex(createConnectionConfig(tenant))
-        }
-      })
-      .reduce((prev, next) => {
-        return Object.assign({}, prev, next);
-      }, {});
+  connectionMap = tenants
+    .map(tenant => {
+      return {
+        [tenant.slug]: knex(createConnectionConfig(tenant))
+      };
+    })
+    .reduce((prev, next) => {
+      return Object.assign({}, prev, next);
+    }, {});
 }
 
 /**
  *  Create configuration object for the given tenant.
-**/
+ **/
 function createConnectionConfig(tenant) {
   return {
     client: process.env.DB_CLIENT,
@@ -49,8 +48,8 @@ function createConnectionConfig(tenant) {
 }
 
 /**
- *  Get the connection information (knex instance) for the given tenant's slug.
-**/
+ * Get the connection information (knex instance) for the given tenant's slug.
+ */
 export function getConnectionBySlug(slug) {
   if (connectionMap) {
     console.log(`Getting connection for ${slug}`);
@@ -60,9 +59,10 @@ export function getConnectionBySlug(slug) {
 }
 
 /**
- *  Get the connection information (knex instance) for current context.
- *  Here we have used a getNamespace from 'continuation-local-storage'. This will let us get / set any information and binds the information to current request context. 
-**/
+ * Get the connection information (knex instance) for current context. Here we have used a
+ * getNamespace from 'continuation-local-storage'. This will let us get / set any
+ * information and binds the information to current request context.
+ */
 export function getConnection() {
   const nameSpace = getNamespace('unique context');
   const conn = nameSpace.get('connection');
